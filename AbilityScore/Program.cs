@@ -82,13 +82,17 @@ internal class Program
         // Establish loop for calculating values
         while (true)
         {
+            // Get previous values for current iteration
             calculator.RollResult = calculator.ReadInt("Starting 4d6 roll", calculator.RollResult);
             calculator.DivideBy = calculator.ReadDouble("Divide by", calculator.DivideBy);
             calculator.AddAmount = calculator.ReadInt("Add amount", calculator.AddAmount);
             calculator.Minimum = calculator.ReadInt("Minimum", calculator.Minimum);
+            // perform new calculation
             calculator.CalculateAbilityScore();
+            // output new ability score
             Console.WriteLine("Calculated ability score: " + calculator.Score);
             Console.WriteLine("Press Q to quit, any other key to continue");
+            // get user key input and either continue or quit
             char keyChar = Console.ReadKey(true).KeyChar;
             if ((keyChar == 'Q') || (keyChar == 'q')) return;
         }
